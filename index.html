@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Slide-Out Menu</title>
+    <style>
+      body {
+        margin: 0;
+        font-family: Arial, sans-serif;
+      }
+
+      /* Бокове меню */
+      .side-menu {
+        position: fixed;
+        top: 0;
+        left: 0;
+        height: 100%;
+        width: 200px;
+        transform: translateX(-160px); /* показуємо тільки 40px */
+        transition: transform 0.3s ease;
+        display: flex;
+        flex-direction: row;
+        z-index: 999;
+      }
+
+      /* При наведенні: показуємо все */
+      .side-menu:hover {
+        transform: translateX(0);
+      }
+
+      /* "MENU HERE" — завжди видно */
+      .handle {
+        writing-mode: vertical-rl;
+        transform: rotate(180deg);
+        width: 40px;
+        background-color: #444;
+        color: white;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-weight: bold;
+        cursor: pointer;
+      }
+
+      /* Вміст списку */
+      .menu-content {
+        flex-grow: 1;
+        background-color: #666;
+        padding: 20px;
+      }
+
+      .menu-content ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+      }
+
+      .menu-content li {
+        margin: 15px 0;
+        color: white;
+        font-weight: bold;
+        cursor: pointer;
+        position: relative;
+        padding-left: 20px;
+      }
+
+      .menu-content li::before {
+        content: "◆";
+        position: absolute;
+        left: 0;
+        color: orange;
+      }
+
+      .menu-content li:hover {
+        color: orange;
+      }
+
+      .menu-content li:hover::before {
+        color: yellow;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Меню -->
+    <div class="side-menu">
+      <div class="handle">MENU HERE</div>
+      <div class="menu-content">
+        <ul>
+          <li>HOME</li>
+          <li>CONTACTS</li>
+          <li>OUR TEAM</li>
+          <li>ABOUT</li>
+          <li>NEWS</li>
+        </ul>
+      </div>
+    </div>
+  </body>
+</html>
